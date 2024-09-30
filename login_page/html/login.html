@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paul Bassett Login</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="../script/kakao_login.js"></script>
+    <script
+      type="text/javascript"
+      src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Logo</h1>
+        <aside>
+          <a href="./login.html">로그인</a>
+          <a href="#">문의하기</a>
+        </aside>
+      </div>
+      <nav>
+        <a href="../../detail_page/menu_coffee/html/menu_coffee.html">
+          <h3>Menu</h3>
+        </a>
+        <a href="#">
+          <h3>Event</h3>
+        </a>
+        <a href="#">
+          <h3>Business</h3>
+        </a>
+      </nav>
+    </header>
+
+    <div class="login-container">
+      <img src="../image/logo.png" alt="logo" class="logo" />
+      <form class="login-form">
+        <input type="text" placeholder="아이디 또는 전화번호" required />
+        <input type="password" placeholder="비밀번호" required />
+        <div class="login-options">
+          <label> <input type="checkbox" /> 로그인 상태 유지 </label>
+          <div class="ip-protect">IP보안 <span class="toggle-on">ON</span></div>
+        </div>
+        <button class="login-btn">로그인</button>
+        <button type="button" class="naver-login" id="naverIdLogin">
+          네이버 로그인
+        </button>
+        <img
+          src="../image/naver_login.png"
+          alt="네이버 로그인"
+          id="customNaverLoginBtn"
+          style="cursor: pointer"
+        />
+        <img
+          src="../image/kakao_login_medium_wide.png"
+          type="button"
+          class="kakao-login"
+          onclick="kakaoLogin()"
+        />
+      </form>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="#">비밀번호 찾기</a>
+        <a href="#">아이디 찾기</a>
+        <a href="#">회원가입</a>
+      </div>
+      <p>©2019 m's seed Co. Ltd. All rights reserved.</p>
+    </footer>
+    <script src="../script/naver_login.js"></script>
+  </body>
+</html>

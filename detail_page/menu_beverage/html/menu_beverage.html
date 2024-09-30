@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../script/menu_beverage.js"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Logo</h1>
+        <aside>
+          <a href="../../../login_page/html/login.html">로그인</a>
+          <a href="#">문의하기</a>
+        </aside>
+      </div>
+      <nav>
+        <a href="../../menu_coffee/html/menu_coffee.html">
+          <h3>Menu</h3>
+        </a>
+        <a href="#">
+          <h3>Event</h3>
+        </a>
+        <a href="#">
+          <h3>Business</h3>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <div>
+        <ul>
+          <a href="../../menu_coffee/html/menu_coffee.html" class="menu-button"
+            >coffee</a
+          >
+          <a
+            href="../../menu_beverage/html/menu_beverage.html"
+            class="menu-button"
+            >beverage</a
+          >
+          <a
+            href="../../menu_icecream/html/menu_icecream.html"
+            class="menu-button"
+            >ice-cream</a
+          >
+          <a href="../../menu_food/html/menu_food.html" class="menu-button"
+            >food</a
+          >
+        </ul>
+      </div>
+      <div id="circle-container"></div>
+    </main>
+    <footer id="footer">
+      <div>푸터</div>
+      <img src="" alt="" />
+    </footer>
+
+    <script>
+      $(document).ready(() => {
+        for (let i = 0; i < menu_beverage.length; i++) {
+          let imageUrl = `url('../image/menu_beverage/menu_beverage(${
+            i + 1
+          }).jpg')`; // 이미지 파일명에 맞게 설정
+          let menu_name = menu_beverage[i].menu;
+
+          // circle과 circle-menu를 하나의 그룹으로 묶어서 추가
+          $("#circle-container").append(
+            `<div class="circle-container-item">
+              <div class="circle">
+                <div class="circle-image" style="background-image: ${imageUrl};"></div>
+              </div>
+              <div class="circle-menu">${menu_name}</div>
+            </div>`
+          );
+        }
+      });
+
+      const currentPage = window.location.pathname;
+
+      $(".menu-button").each(function () {
+        const href = $(this).attr("href");
+        const absoluteHref = new URL(href, window.location.origin).pathname;
+
+        if (currentPage.includes(absoluteHref)) {
+          $(this).addClass("active");
+        }
+      });
+    </script>
+  </body>
+</html>
